@@ -24,7 +24,7 @@ Constraints:
 -10,000,000 <= nums[i] <= 10,000,000
 -10,000,000 <= target <= 10,000,000 */
 
-twoSum(nums, target) {
+const twoSum = (nums, target) => {
     const prevMap = new Map();
 
     for (let i = 0; i < nums.length; i++) {
@@ -38,3 +38,8 @@ twoSum(nums, target) {
 
     return [];
 }
+const nums = [3,4,5,6], target = 7;
+console.log(twoSum(nums, target)); // [0, 1]
+
+// Time Complexity: O(n) where n is the length of the array
+// Space Complexity: O(n) for the hash map  

@@ -18,7 +18,7 @@ Recommended Time & Space Complexity
 You should aim for a solution with O(n + m) time and O(1) space, where n is the length of the string s and m is the length of the string t.
  */
 
-isAnagram(s, t) {
+const isAnagram = (s, t) => {
     if(s.length !== t.length){
         return false;
     }
@@ -27,3 +27,15 @@ isAnagram(s, t) {
     const sortT = t.slpit('').sort().join()
     return sortS === sortT;
 }  
+
+const s = "anagram", t = "nagaram";
+console.log(isAnagram(s, t)); // true
+
+const s1 = "rat", t1 = "car";
+console.log(isAnagram(s1, t1)); // false
+
+const s2 = "a", t2 = "ab";
+console.log(isAnagram(s2, t2)); // false
+
+// Time Complexity: O(n log n) due to sorting
+// Space Complexity: O(1) if we ignore the space used for sorting

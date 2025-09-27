@@ -18,7 +18,7 @@ Constraints:
 1 <= k <= number of distinct elements in nums. */
 
 
-topKFrequent(nums, k) {
+const topKFrequent = (nums, k) => {
 // Step 1: Count the frequency of each number
 const frequencyMap = new Map();
 for (const num of nums) {
@@ -39,3 +39,12 @@ result.push(entries[i][0]);
 
 return result;
 }
+
+const nums = [1,2,2,3,3,3], k = 2;
+console.log(topKFrequent(nums, k)); // [3, 2]
+
+const nums1 = [7,7], k1 = 1;
+console.log(topKFrequent(nums1, k1)); // [7]
+
+// Time Complexity: O(n log n) due to sorting the entries
+// Space Complexity: O(n) for storing the frequency map and entries array

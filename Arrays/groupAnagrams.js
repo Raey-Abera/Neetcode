@@ -20,7 +20,7 @@ Constraints:
 0 <= strs[i].length <= 100
 strs[i] is made up of lowercase English letters. */
 
-groupAnagrams(strs) {
+const groupAnagrams = (strs) => {
     const map = new Map();
 
 for (let str of strs) {
@@ -35,4 +35,33 @@ for (let str of strs) {
 
 return Array.from(map.values());
 }
+
+const strs = ["act","pots","tops","cat","stop","hat"];
+console.log(groupAnagrams(strs)); // [["act", "cat"], ["pots", "tops", "stop"], ["hat"]]
+
+// Time Complexity: O(n * k log k), where n is the number of strings and k is the maximum length of a string (due to sorting each string)
+// Space Complexity: O(n), for storing the grouped anagrams in the map
+
+/* Alternative Approach using Character Count
+This approach avoids sorting by using character frequency as the key.
+
+const groupAnagrams = (strs) => {
+    const map = new Map();
+
+    for (let str of strs) {
+        const count = new Array(26).fill(0);
+        for (let char of str) {
+            count[char.charCodeAt(0) - 'a'.charCodeAt(0)]++;
+        }
+        const key = count.join('#'); // Create a unique key based on character counts
+
+        if (!map.has(key)) {
+            map.set(key, []);
+        }
+        map.get(key).push(str);
+    }
+
+    return Array.from(map.values());
+};
+*/
 
